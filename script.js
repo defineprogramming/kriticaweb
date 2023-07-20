@@ -27,3 +27,33 @@ const countdown = () => {
 };
 
 setInterval(countdown, 1000);
+
+  const animate = number => {
+    number.classList.add('animate');
+    setTimeout(() => {
+      number.classList.remove('animate');  
+    }, 500);
+  }
+
+  if(textDay < oldTextDay) {
+    animate(document.querySelector('.countdown #days'));
+  }
+
+  if(textHour < oldTextHour) {
+    animate(document.querySelector('.countdown #hours'));
+  }
+
+  if(textMinute < oldTextMinute) {
+    animate(document.querySelector('.countdown #minutes'));
+  }
+  
+  if(textSecond < oldTextSecond) { 
+    animate(document.querySelector('.countdown #seconds'));
+  }
+
+  oldTextDay = textDay;
+  oldTextHour = textHour;
+  oldTextMinute = textMinute;
+  oldTextSecond = textSecond;
+
+};
