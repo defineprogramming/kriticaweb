@@ -11,15 +11,10 @@ body {
 }
 
 .container {
-  max-width: 800px;  
+  max-width: 800px;
   margin: 0 auto;
   padding: 60px 20px;
-  text-align: center;
-}
-
-.logo img {
-  max-width: 160px;
-}
+  text-align: center;  
 
 .content {
   max-width: 500px;
@@ -29,20 +24,18 @@ body {
 h1 {
   font-size: 42px;
   font-weight: 700;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .countdown {
   display: flex;
   justify-content: center;
-  text-align: center;
-  opacity: 1;
-  transition: opacity 0.5s;
+  text-align: center; 
 }
 
 .countdown div {
   padding: 10px;
-  border-right: 1px solid #555;
+  border-right: 1px solid #555; 
 }
 
 .countdown div:last-child {
@@ -53,31 +46,12 @@ h1 {
   display: block;
   font-size: 48px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.1;  
 }
 
 .countdown span:last-child {
   font-size: 17px;
   text-transform: uppercase;
-}
-
-.social {
-  margin: 20px 0;  
-}
-
-.social li {
-  display: inline-block;
-}
-
-.social i {
-  font-size: 24px;
-  margin: 0 10px;
-  color: #aaa;
-  transition: color 0.3s;
-}
-
-.social i:hover {
-  color: #fff;  
 }
 
 @keyframes flash {
@@ -88,7 +62,7 @@ h1 {
     color: #ccc;
   }
   100% {
-    color: #fff;  
+    color: #fff; 
   }
 }
 
@@ -109,7 +83,7 @@ h1 {
   .countdown div {
     min-width: 50%;
     border-right: none;
-    border-bottom: 1px solid #555; 
+    border-bottom: 1px solid #555;
   }
   
   .countdown div:nth-last-child(2) {
