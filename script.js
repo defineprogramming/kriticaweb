@@ -1,48 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Kritica - Coming Soon</title>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+let oldTextDay, oldTextHour, oldTextMinute, oldTextSecond;
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
+const countdown = () => {
 
-<body>
+  const countDate = new Date('November 1, 2023 00:00:00').getTime();
+  const now = new Date().getTime();
+  const gap = countDate - now;
 
-  <div class="container">
-  
-    <div class="logo">
-      <img src="kritica-logo.png" alt="Kritica">
-    </div>
-  
-    <div class="content">
-      <h1>The future of reading arrives in:</h1>
-      
-      <div class="countdown">
-        <div>
-          <span id="days">00</span>
-          <span>Days</span>
-        </div>  
-        <div>
-          <span id="hours">00</span>
-          <span>Hours</span> 
-        </div>
-        <div>
-          <span id="minutes">00</span>
-          <span>Mins</span>
-        </div>
-        <div>
-          <span id="seconds">00</span>
-          <span>Secs</span>
-        </div>
-      </div>
-    </div>
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
 
-  </div>
+  const textDay = Math.floor(gap / day);
+  const textHour = Math.floor((gap % day) / hour);
+  const textMinute = Math.floor((gap % hour) / minute);
+  const textSecond = Math.floor((gap % minute) / second);
 
-  <script src="script.js"></script>
+  const animate = number => {
+    number.classList.add('animate');
+    setTimeout(() => {
+      number.classList.remove('animate');
+    }, 500);
+  }
 
-</body>
-</html>
+  if(textDay < oldTextDay) {
+    animate(document.querySelector('.countdown #days'));
+  }
+
+  if(textHour < oldTextHour) {
+    animate(document.querySelector('.countdown #hours'));
+  }
+
+  if(textMinute < oldTextMinute) {
+    animate(document.querySelector('.countdown #minutes'));
+  }
+
+  if(textSecond < oldTextSecond) {
+    animate(document.querySelector('.countdown #seconds'));
+  }
+
+  oldTextDay = textDay;
+  oldTextHour = textHour;
+  oldTextMinute = textMinute;
+  oldTextSecond = textSecond;
+
+  document.querySelector('.countdown #days').innerText = textDay;
+  document.querySelector('.countdown #hours').innerText = textHour;
+  document.querySelector('.countdown #minutes').innerText = textMinute;
+  document.querySelector('.countdown #seconds').innerText = textSecond;
+
+};
+
+setInterval(countdown, 1000);
