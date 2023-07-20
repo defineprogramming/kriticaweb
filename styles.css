@@ -80,6 +80,22 @@ h1 {
   color: #fff;  
 }
 
+@keyframes flash {
+  0% {
+    color: #fff;
+  }
+  50% {
+    color: #ccc;
+  }
+  100% {
+    color: #fff;  
+  }
+}
+
+.animate {
+  animation: flash 0.5s;
+}
+
 @media(max-width: 600px) {
 
   h1 {
