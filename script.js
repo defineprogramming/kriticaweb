@@ -1,6 +1,8 @@
+let oldTextDay, oldTextHour, oldTextMinute, oldTextSecond;
+
 const countdown = () => {
 
-  const countDate = new Date('July 31, 2023 00:00:00').getTime();
+  const countDate = new Date('November 1, 2023 00:00:00').getTime();
   const now = new Date().getTime();
   const gap = countDate - now;
 
@@ -14,24 +16,10 @@ const countdown = () => {
   const textMinute = Math.floor((gap % hour) / minute);
   const textSecond = Math.floor((gap % minute) / second);
 
-  document.querySelector('.countdown #days').innerText = textDay;
-  document.querySelector('.countdown #hours').innerText = textHour;
-  document.querySelector('.countdown #minutes').innerText = textMinute;
-  document.querySelector('.countdown #seconds').innerText = textSecond;
-  
-  document.querySelector('.countdown').style.opacity = 0;
-  setTimeout(() => {
-    document.querySelector('.countdown').style.opacity = 1;
-  }, 500);
-
-};
-
-setInterval(countdown, 1000);
-
   const animate = number => {
     number.classList.add('animate');
     setTimeout(() => {
-      number.classList.remove('animate');  
+      number.classList.remove('animate');
     }, 500);
   }
 
@@ -46,8 +34,8 @@ setInterval(countdown, 1000);
   if(textMinute < oldTextMinute) {
     animate(document.querySelector('.countdown #minutes'));
   }
-  
-  if(textSecond < oldTextSecond) { 
+
+  if(textSecond < oldTextSecond) {
     animate(document.querySelector('.countdown #seconds'));
   }
 
@@ -56,4 +44,11 @@ setInterval(countdown, 1000);
   oldTextMinute = textMinute;
   oldTextSecond = textSecond;
 
+  document.querySelector('.countdown #days').innerText = textDay;
+  document.querySelector('.countdown #hours').innerText = textHour;
+  document.querySelector('.countdown #minutes').innerText = textMinute;
+  document.querySelector('.countdown #seconds').innerText = textSecond;
+
 };
+
+setInterval(countdown, 1000);
