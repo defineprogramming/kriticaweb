@@ -22,6 +22,7 @@ const countdown = () => {
       number.classList.remove('animate');
     }, 500);
   }
+// damn u vercel
 
   if(textDay < oldTextDay) {
     animate(document.querySelector('.countdown #days'));
